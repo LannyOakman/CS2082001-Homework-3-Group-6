@@ -164,7 +164,7 @@ void OneDimHash::print() {
 	std::cout << "_____OCCUPIED_TABLE_VALUES______________________________________" << std::endl;
 	for (int i = 0; i < 500; i++) {
 		if (this->table[i] != nullptr) {
-			std::cout << "VALUE: " << *this->table[i] << " | INDEX: " << i << std::endl;
+			std::cout << "VALUE: " << *this->table[i] << "\tINDEX: " << i << std::endl;
 		}
 
 	}

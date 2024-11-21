@@ -7,6 +7,8 @@ Sometimes all of the search values are not found in the table. In that case just
 */
 
 #include "TwoDimHash.h"
+#include "OneDimHash.h"
+
 #include <string>
 
 void big_line() {
@@ -15,12 +17,14 @@ void big_line() {
 
 int main() {
 	TwoDimHash table;
+	OneDimHash one_d;
 
 	srand(time(0));
 
 	//adds ints to table.
 	for (int i = 0; i < 200; i++) {
 		std::cout << table.Insert(1 + (rand() % 1000));
+		std::cout << one_d.insert(1 + (rand() % 1000));
 	}
 	big_line();
 
@@ -66,5 +70,6 @@ int main() {
 	big_line();
 
 	table.Print();
+	one_d.print();
 
 }
