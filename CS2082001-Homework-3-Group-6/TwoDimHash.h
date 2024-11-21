@@ -1,8 +1,18 @@
 #pragma once
+#include <iostream>
 class TwoDimHash
 {
+	static const int ROW = 100, COL = 5;
 private:
-	int* arr[100][5] = {0};
+	int arr[ROW][COL] = {};
+
+	/**
+	 Hashes given integer
+
+	 Parameters: val: int
+	 Return value: int
+	 */
+	int Hash(int);
 
 public:
 	TwoDimHash();
@@ -40,5 +50,4 @@ public:
 	 Return value: None
 	*/
 	void Print();
-
 };
