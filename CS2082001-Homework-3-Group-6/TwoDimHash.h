@@ -12,7 +12,10 @@ private:
 	 Parameters: val: int
 	 Return value: int
 	 */
-	int Hash(int);
+	int hash(int);
+
+	//handeling removing 
+	void shiftUp(int arr[], int i);
 
 public:
 	TwoDimHash();
@@ -25,7 +28,7 @@ public:
 	 Parameters: val: int
 	 Return value: int
 	 */
-	int Insert(int);
+	int insert(int);
 
 	/**
 	 Searches for given value, prints if integer is found, return total number of spots searched.
@@ -33,7 +36,7 @@ public:
 	 Parameters: val: int
 	 Return value: int
 	*/
-	int Search(int);
+	int search(int);
 
 	/**
 	 Removes given value. Returns total number of spots searched.
@@ -41,7 +44,7 @@ public:
 	 Parameters: val: int
 	 Return value: int
 	*/
-	int Remove(int);
+	int remove(int);
 
 	/**
 	 prints formatted hash table
@@ -49,5 +52,5 @@ public:
 	 Parameters: val: int
 	 Return value: None
 	*/
-	void Print();
+	void print();
 };
