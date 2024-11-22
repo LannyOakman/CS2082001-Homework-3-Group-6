@@ -52,6 +52,9 @@ int TwoDimHash::remove(int val) {
 			shiftUp(arr[index], i + 1);
 			return i + 1;
 		}
+		else if (!this->arr[index][i]) {
+			return i + 1;
+		}
 		if (i == COL - 1) {
 			std::cout << "2D_NOTE: The value " << val << " cannot be removed.\n";
 			return i + 1;
