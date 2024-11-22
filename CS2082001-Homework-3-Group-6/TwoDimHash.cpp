@@ -13,10 +13,12 @@ int TwoDimHash::insert(int val) {
 	for (int i = 0; i < COL; i++) {
 		if (!this->arr[index][i]) {
 			arr[index][i] = val;
+
+			std::cout << "2D_NOTE: Value " << val << " inserted after " << i << " collisions.\n";
 			return i + 1;
 		}
 		if (i == COL - 1) {
-			std::cout << "The value " << val << " cannot be inserted.\n";
+			std::cout << "2D_NOTE: Value " << val << " cannot be inserted.\n";
 			return i + 1;
 		}
 	}
@@ -28,11 +30,11 @@ int TwoDimHash::search(int val) {
 
 	for (int i = 0; i < COL; i++) {
 		if (this->arr[index][i] == val) {
-			std::cout << "The value " << val << " can be found.\n";
+			std::cout << "2D_NOTE: The value " << val << " can be found.\n";
 			return i + 1;
 		}
 		if (i == COL - 1 || !this->arr[index][i]) {
-			std::cout << "The value " << val << " cannot be found.\n";
+			std::cout << "2D_NOTE: The value " << val << " cannot be found.\n";
 			return i + 1;
 		}
 	}
@@ -46,12 +48,12 @@ int TwoDimHash::remove(int val) {
 	for (int i = 0; i < COL; i++) {
 		if (this->arr[index][i] == val) {
 			this->arr[index][i] = 0;
-			std::cout << "The value " << val << " was removed.\n";
+			std::cout << "2D_NOTE: The value " << val << " was removed.\n";
 			shiftUp(arr[index], i + 1);
 			return i + 1;
 		}
 		if (i == COL - 1) {
-			std::cout << "The value " << val << " cannot be removed.\n";
+			std::cout << "2D_NOTE: The value " << val << " cannot be removed.\n";
 			return i + 1;
 		}
 	}
@@ -59,7 +61,7 @@ int TwoDimHash::remove(int val) {
 }
 
 void TwoDimHash::print() {
-	std::cout << "2D Hash Table (100x5)\n";
+	std::cout << "2D Hash Table [100][5]\n";
 	for (int i = 0; i < ROW; i++) {
 		for (int j = 0; j < COL; j++) {
 			//if (this->arr[i][j] == 0) break;

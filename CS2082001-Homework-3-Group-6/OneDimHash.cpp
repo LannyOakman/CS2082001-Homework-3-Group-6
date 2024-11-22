@@ -29,13 +29,13 @@ int OneDimHash::insert(int val) {
 	}
 	//check if all nodes have been searched
 	if (collisions >= MAX_SIZE) {
-		std::cout << "The value " <<val<<" cannot be inserted." << std::endl;
+		std::cout << "1D_NOTE: The value " <<val<<" cannot be inserted." << std::endl;
 		return collisions;
 	}
 
 	this->table[index] = new_val;
 	this->count += 1;
-	std::cout << "NOTE: Value inserted after " << collisions << " collisions." << std::endl;
+	std::cout << "1D_NOTE: Value " << val << " inserted after " << collisions << " collisions." << std::endl;
 	return collisions+1;
 
 
@@ -67,11 +67,11 @@ int OneDimHash::search(int val) {
 	}
 
 	if (collisions >= MAX_SIZE) {
-		std::cout << "The value " << val << " cannot be found." << std::endl;
+		std::cout << "1D_NOTE: The value " << val << " cannot be found." << std::endl;
 		return collisions;
 	}
 
-	std::cout << "The value " << val << " can be found." << std::endl;
+	std::cout << "1D_NOTE: The value " << val << " can be found." << std::endl;
 	return collisions+1;
 
 }
@@ -99,7 +99,7 @@ int OneDimHash::inTable(int start_index, int val) {
 	}
 
 	if (collisions >= MAX_SIZE) {
-		std::cout << "The value " << val<< " cannot be found." << std::endl;
+		std::cout << "1D_NOTE: The value " << val<< " cannot be found." << std::endl;
 		return (collisions+1) * -1;
 	}
 
@@ -121,9 +121,11 @@ int OneDimHash::remove(int val) {
 	int search_result = inTable(index, val);
 
 	if (search_result < 0) {
-		std::cout << "The value " << val << " cannot be removed." << std::endl;
+		std::cout << "1D_NOTE: The value " << val << " cannot be removed." << std::endl;
 		return search_result * -1;
 	}
+
+	std::cout << "1D_NOTE: The value " << val << " was removed.\n";
 
 	int current_index = search_result;
 	//start removal
@@ -138,7 +140,6 @@ int OneDimHash::remove(int val) {
 	while (this->table[current_index] != nullptr) {
 		if (hashFunc(*this->table[current_index]) == hashFunc(val)) {
 
-
 			if (current_index >= MAX_SIZE) current_index -= MAX_SIZE;
 			if (prev_index >= MAX_SIZE) prev_index -= MAX_SIZE;
 
@@ -150,7 +151,6 @@ int OneDimHash::remove(int val) {
 		else break;
 		
 	}
-
 
 	//finally turn current index to nullptr;
 	//delete this->table[prev_index];
