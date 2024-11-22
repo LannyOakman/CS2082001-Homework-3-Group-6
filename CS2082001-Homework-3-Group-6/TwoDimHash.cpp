@@ -7,8 +7,8 @@ TwoDimHash::TwoDimHash() {
 TwoDimHash::~TwoDimHash() {
 }
 
-int TwoDimHash::Insert(int val) {
-	int index = Hash(val);
+int TwoDimHash::insert(int val) {
+	int index = hash(val);
 
 	for (int i = 0; i < COL; i++) {
 		if (!this->arr[index][i]) {
@@ -23,8 +23,8 @@ int TwoDimHash::Insert(int val) {
 
 }
 
-int TwoDimHash::Search(int val) {
-	int index = Hash(val);
+int TwoDimHash::search(int val) {
+	int index = hash(val);
 
 	for (int i = 0; i < COL; i++) {
 		if (this->arr[index][i] == val) {
@@ -39,14 +39,15 @@ int TwoDimHash::Search(int val) {
 
 }
 
-int TwoDimHash::Remove(int val) {
+int TwoDimHash::remove(int val) {
 
-	int index = Hash(val);
+	int index = hash(val);
 
 	for (int i = 0; i < COL; i++) {
 		if (this->arr[index][i] == val) {
 			this->arr[index][i] = 0;
 			std::cout << "The value " << val << " was removed.\n";
+			shiftUp(arr[index], i + 1);
 			return i + 1;
 		}
 		if (i == COL - 1) {
@@ -57,7 +58,7 @@ int TwoDimHash::Remove(int val) {
 
 }
 
-void TwoDimHash::Print() {
+void TwoDimHash::print() {
 	std::cout << "2D Hash Table (100x5)\n";
 	for (int i = 0; i < ROW; i++) {
 		for (int j = 0; j < COL; j++) {
@@ -68,6 +69,23 @@ void TwoDimHash::Print() {
 	}
 }
 
-int TwoDimHash::Hash(int val) {
+int TwoDimHash::hash(int val) {
 	return val % 100;
+}
+
+void TwoDimHash::shiftUp(int arr[], int i) {
+
+	if (!(i < COL)) {
+		return;
+	}
+	
+	if (!arr[i]) {
+		return;
+	}
+
+	arr[i - 1] = arr[i];
+	arr[i] = 0;
+	i++;
+
+	shiftUp(arr, i);
 }

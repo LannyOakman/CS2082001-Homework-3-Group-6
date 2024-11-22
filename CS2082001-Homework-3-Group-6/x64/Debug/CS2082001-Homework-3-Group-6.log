@@ -1,3 +1,8 @@
-﻿  main.cpp
-C:\Users\lanny\Desktop\CS2082001-Homework-3-Group-6\CS2082001-Homework-3-Group-6\main.cpp(19,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  TwoDimHash.cpp
+  main.cpp
+C:\Users\lanny\Desktop\CS2082001-Homework-3-Group-6\CS2082001-Homework-3-Group-6\main.cpp(22,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+C:\Users\lanny\Desktop\CS2082001-Homework-3-Group-6\CS2082001-Homework-3-Group-6\TwoDimHash.cpp(24): warning C4715: 'TwoDimHash::insert': not all control paths return a value
+C:\Users\lanny\Desktop\CS2082001-Homework-3-Group-6\CS2082001-Homework-3-Group-6\TwoDimHash.cpp(40): warning C4715: 'TwoDimHash::search': not all control paths return a value
+C:\Users\lanny\Desktop\CS2082001-Homework-3-Group-6\CS2082001-Homework-3-Group-6\TwoDimHash.cpp(59): warning C4715: 'TwoDimHash::remove': not all control paths return a value
   CS2082001-Homework-3-Group-6.vcxproj -> C:\Users\lanny\Desktop\CS2082001-Homework-3-Group-6\CS2082001-Homework-3-Group-6\x64\Debug\CS2082001-Homework-3-Group-6.exe

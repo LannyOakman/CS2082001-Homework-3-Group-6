@@ -170,7 +170,7 @@ void OneDimHash::print() {
 	std::cout << "Item Count: " << count << std::endl;
 	for (int i = 0; i < 500; i++) {
 		if (this->table[i] != nullptr) {
-			std::cout << "VALUE: " << *this->table[i] << " | INDEX: " << i << std::endl;
+			std::cout << "VALUE: " << *this->table[i] << "\tINDEX: " << i << std::endl;
 		}
 
 	}
