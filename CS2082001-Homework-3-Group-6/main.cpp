@@ -54,7 +54,7 @@ int main() {
 	std::cout << "Insertion 2D table\n";
 
 	for (int i = 0; i < 50; i++) {
-		insert_attempts[1] += table.Insert(data_set[i]);
+		insert_attempts[1] += table.insert(data_set[i]);
 	}
 	big_line();
 	big_line();
@@ -76,7 +76,7 @@ int main() {
 		if ( num % 7 == 0) {
 			removal_count += 1;
 			removal_attempts[0] += oneDtable.remove(num);
-			removal_attempts[1] += table.Remove(num);
+			removal_attempts[1] += table.remove(num);
 
 		}
 	}
@@ -98,9 +98,9 @@ int main() {
 
 
 	for (int i = 50; i < 100; i++) {
-		insert_attempts2[1] += table.Insert(data_set[i]);
+		insert_attempts2[1] += table.insert(data_set[i]);
 		insert_attempts2[0] += oneDtable.insert(data_set[i]);
-
+	}
 	OneDimHash one_d;
 
 	srand(time(0));
@@ -111,6 +111,7 @@ int main() {
 		std::cout << one_d.insert(1 + (rand() % 1000));
 
 	}
+
 	big_line();
 	big_line();
 
@@ -138,7 +139,8 @@ int main() {
 			items_searched += 1;
 			
 			search_attempts[0] += oneDtable.search(i);
-			search_attempts[1] += table.Search(i);
+			search_attempts[1] += table.search(i);
+
       
 	//search for value
 	std::cout << table.search(22) << "\n";
