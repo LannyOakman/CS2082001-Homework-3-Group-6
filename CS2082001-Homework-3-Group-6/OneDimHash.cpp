@@ -29,14 +29,14 @@ int OneDimHash::insert(int val) {
 	}
 	//check if all nodes have been searched
 	if (collisions >= MAX_SIZE) {
-		std::cout << "The value x cannot be inserted." << std::endl;
+		std::cout << "The value " <<val<<" cannot be inserted." << std::endl;
 		return collisions;
 	}
 
 	this->table[index] = new_val;
 	this->count += 1;
 	std::cout << "NOTE: Value inserted after " << collisions << " collisions." << std::endl;
-	return collisions;
+	return collisions+1;
 
 
 }
@@ -72,7 +72,7 @@ int OneDimHash::search(int val) {
 	}
 
 	std::cout << "The value " << val << " can be found." << std::endl;
-	return collisions;
+	return collisions+1;
 
 }
 
@@ -99,15 +99,15 @@ int OneDimHash::inTable(int start_index, int val) {
 	}
 
 	if (collisions >= MAX_SIZE) {
-		std::cout << "The value x cannot be found." << std::endl;
-		return collisions * -1;
+		std::cout << "The value " << val<< " cannot be found." << std::endl;
+		return (collisions+1) * -1;
 	}
 
 	if (*(this->table[index]) == val) {
 		return index;
 	}
 
-	return collisions * -1;
+	return (collisions+1) * -1;
 
 }
 
@@ -136,7 +136,7 @@ int OneDimHash::remove(int val) {
 	current_index += 1;
 
 	while (this->table[current_index] != nullptr) {
-		if (hashFunc(*this->table[current_index]) == index) {
+		if (hashFunc(*this->table[current_index]) == hashFunc(val)) {
 
 
 			if (current_index >= MAX_SIZE) current_index -= MAX_SIZE;
@@ -147,21 +147,27 @@ int OneDimHash::remove(int val) {
 			current_index += 1;
 			repositions += 1;
 		}
+		else break;
+		
 	}
 
 
 	//finally turn current index to nullptr;
 	//delete this->table[prev_index];
-	this->table[prev_index] = nullptr;
+	if (this->table[prev_index] != nullptr) {
+		this->table[prev_index] = nullptr;
+	}
+
 	//std::cout << *table[current_index] << std::endl;
-	return repositions;
+	return repositions+1;
 
 }
 
 void OneDimHash::print() {
 	//looping through all spots bc i want indexes
 	//not printing nulls
-	std::cout << "_____OCCUPIED_TABLE_VALUES______________________________________" << std::endl;
+	std::cout << "_____OCCUPIED_1D_TABLE_VALUES______________________________________" << std::endl;
+	std::cout << "Item Count: " << count << std::endl;
 	for (int i = 0; i < 500; i++) {
 		if (this->table[i] != nullptr) {
 			std::cout << "VALUE: " << *this->table[i] << " | INDEX: " << i << std::endl;
